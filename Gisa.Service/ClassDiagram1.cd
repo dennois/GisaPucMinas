@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Gisa.Service.ConsultaService">
+    <Position X="8.25" Y="1.5" Width="2.75" />
+    <AssociationLine Name="_associadoService" Type="Gisa.Service.AssociadoService" FixedFromPoint="true">
+      <Path>
+        <Point X="8.25" Y="2.25" />
+        <Point X="7.958" Y="2.25" Type="JumpStart" />
+        <Point X="7.792" Y="2.25" Type="JumpEnd" />
+        <Point X="3.25" Y="2.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_consultarIntegration" Type="Gisa.SAF.ConsultarIntegration" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="11" Y="2" />
+        <Point X="12.417" Y="2" Type="JumpStart" />
+        <Point X="12.583" Y="2" Type="JumpEnd" />
+        <Point X="12.875" Y="2" />
+        <Point X="12.875" Y="4" />
+        <Point X="13.417" Y="4" Type="JumpStart" />
+        <Point X="13.583" Y="4" Type="JumpEnd" />
+        <Point X="16.104" Y="4" Type="JumpStart" />
+        <Point X="16.427" Y="4" Type="JumpEnd" />
+        <Point X="16.5" Y="4" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_especialidadeService" Type="Gisa.Service.EspecialidadeService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11" Y="2.688" />
+        <Point X="12.5" Y="2.688" />
+        <Point X="12.5" Y="1" />
+        <Point X="16.844" Y="1" />
+        <Point X="16.844" Y="1.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_prestadorService" Type="Gisa.Service.PrestadorService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="2.75" />
+        <Point X="7.875" Y="2.75" />
+        <Point X="7.875" Y="1.25" />
+        <Point X="12.417" Y="1.25" Type="JumpStart" />
+        <Point X="12.583" Y="1.25" Type="JumpEnd" />
+        <Point X="13.776" Y="1.25" />
+        <Point X="13.776" Y="1.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_fluxoService" Type="Gisa.Service.FluxoService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11" Y="3.313" />
+        <Point X="11.375" Y="3.313" />
+        <Point X="11.375" Y="5.625" />
+        <Point X="13.417" Y="5.625" Type="JumpStart" />
+        <Point X="13.583" Y="5.625" Type="JumpEnd" />
+        <Point X="14.719" Y="5.625" />
+        <Point X="14.719" Y="6" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAQAAQAAQABAAAAgEBACAAAAAAAASAAAAIABAAQAAA=</HashCode>
+      <FileName>ConsultaService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_associadoService" />
+      <Field Name="_consultaRepository" />
+      <Field Name="_consultaValidator" />
+      <Field Name="_consultaFluxoService" />
+      <Field Name="_consultarIntegration" />
+      <Field Name="_conveniadoService" />
+      <Field Name="_especialidadeService" />
+      <Field Name="_prestadorService" />
+      <Field Name="_fluxoService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.AssociadoService">
+    <Position X="1" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAgUAAAAAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssociadoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_associadoValidator" />
+      <Field Name="_associadoRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.ConsultaRepository">
+    <Position X="10.25" Y="7.25" Width="2.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.ConsultaFluxoService">
+    <Position X="11.25" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CBAQAAAAAAABAAACAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConsultaFluxoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_consultaFluxoValidator" />
+      <Field Name="_consultaFluxoRepository" />
+      <Field Name="_consultaService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SAF.ConsultarIntegration">
+    <Position X="16.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.ConveniadoService">
+    <Position X="4.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgAQAAgAAAABIQAAAAAAAAAAIAgAAQAAABAAAAAAQAA=</HashCode>
+      <FileName>ConveniadoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_conveniadoValidator" />
+      <Field Name="_conveniadoRepository" />
+      <Field Name="_especialidadeRepository" />
+      <Field Name="_localizacaoRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.EspecialidadeService">
+    <Position X="16" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAgAAAABAAAAAAAAAAACAABAgQAAAgAAAAAAQAA=</HashCode>
+      <FileName>EspecialidadeService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_especialidadeValidator" />
+      <Field Name="_especialidadeIntegration" />
+      <Field Name="_especialidadeRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.PrestadorService">
+    <Position X="12.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAIABAAAAAAAAAAEAAAAAAQAAABAAAAAAQAA=</HashCode>
+      <FileName>PrestadorService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_prestadorValidator" />
+      <Field Name="_prestadorRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.FluxoService">
+    <Position X="13.75" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAABAAAAAQAAAIAAAAAAAQAAAAAAIAAAAAA=</HashCode>
+      <FileName>FluxoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_fluxoValidator" />
+      <Field Name="_fluxoRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SAF.EspecialidadeIntegration">
+    <Position X="19.75" Y="2.75" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.EspecialidadeRepository">
+    <Position X="19.5" Y="5.25" Width="2.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.ConsultaFluxoRepository" Collapsed="true">
+    <Position X="14.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.ConveniadoRepository" Collapsed="true">
+    <Position X="6.75" Y="7.75" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.LocalizacaoRepository">
+    <Position X="7" Y="9" Width="2.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.FluxoRepository">
+    <Position X="17" Y="6.75" Width="2.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.PrestadorRepository">
+    <Position X="7.25" Y="6" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.AssociadoRepository">
+    <Position X="0.5" Y="5.25" Width="2.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="FluentValidation.IValidator&lt;T&gt;">
+    <Position X="2" Y="11.75" Width="1.5" />
+    <InheritanceLine Type="FluentValidation.IValidator" ManuallyRouted="true">
+      <Path>
+        <Point X="4.375" Y="13.5" />
+        <Point X="4.375" Y="13.25" />
+        <Point X="3.75" Y="13.25" />
+        <Point X="3.75" Y="13.425" />
+        <Point X="2.75" Y="13.425" />
+        <Point X="2.75" Y="13.175" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="FluentValidation.IValidator">
+    <Position X="3.25" Y="13.5" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

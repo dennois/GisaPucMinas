@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Gisa.Service.ConsultaService">
+    <Position X="10.25" Y="0.75" Width="2.75" />
+    <AssociationLine Name="_especialidadeService" Type="Gisa.Service.EspecialidadeService" FixedFromPoint="true">
+      <Path>
+        <Point X="13" Y="1.125" />
+        <Point X="14.5" Y="1.125" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_consultaFluxoService" Type="Gisa.Service.ConsultaFluxoService" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.438" Y="0.75" />
+        <Point X="12.438" Y="0.375" />
+        <Point X="21.062" Y="0.375" />
+        <Point X="21.062" Y="0.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_fluxoService" Type="Gisa.Service.FluxoService" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.688" Y="0.75" />
+        <Point X="11.688" Y="0.375" />
+        <Point X="1.938" Y="0.375" />
+        <Point X="1.938" Y="0.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAQAAQAAQABAAAAgEBACAAAAAAAASAAAAIABAAQAAA=</HashCode>
+      <FileName>ConsultaService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_associadoService" />
+      <Field Name="_especialidadeService" />
+      <Field Name="_conveniadoService" />
+      <Field Name="_prestadorService" />
+      <Field Name="_consultaFluxoService" />
+      <Field Name="_fluxoService" />
+      <Field Name="_consultaRepository" />
+      <Field Name="_consultarIntegration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.AssociadoService">
+    <Position X="6.5" Y="1.5" Width="2.25" />
+    <Members>
+      <Field Name="_associadoValidator" Hidden="true" />
+    </Members>
+    <AssociationLine Name="_associadoRepository" Type="Gisa.SqlRepository.AssociadoRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="3.011" />
+        <Point X="9.344" Y="3.011" />
+        <Point X="9.344" Y="3.709" />
+        <Point X="10.115" Y="3.709" />
+        <Point X="10.115" Y="4.406" />
+        <Point X="10.75" Y="4.406" />
+        <Point X="10.75" Y="4.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_associadoIntegration" Type="Gisa.Domain.Interfaces.Integration.IAssociadoIntegration" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.938" Y="3.373" />
+        <Point X="7.938" Y="3.811" />
+        <Point X="7.938" Y="3.811" />
+        <Point X="7.938" Y="4.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAkUAAAAAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssociadoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_associadoRepository" />
+      <Field Name="_associadoValidator" />
+      <Field Name="_associadoIntegration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.ConsultaFluxoService">
+    <Position X="20" Y="0.75" Width="2" />
+    <AssociationLine Name="_consultaFluxoIntegration" Type="Gisa.Domain.Interfaces.Integration.IConsultaFluxoIntegration" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="21.75" Y="2.882" />
+        <Point X="21.75" Y="4.219" />
+        <Point X="22.5" Y="4.219" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_consultaFluxoRepository" Type="Gisa.SqlRepository.ConsultaFluxoRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="21.125" Y="2.882" />
+        <Point X="21.125" Y="6.168" />
+        <Point X="21.625" Y="6.168" />
+        <Point X="21.625" Y="6.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CBAQAAAAAAABAAAAAAAACAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>ConsultaFluxoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_consultaFluxoIntegration" />
+      <Field Name="_consultaFluxoRepository" />
+      <Field Name="_consultaRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.PrestadorService">
+    <Position X="17.5" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAIABAAAAAAAAIAEAAAAAAQAAABAAAAAAQAA=</HashCode>
+      <FileName>PrestadorService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_prestadorRepository" />
+      <Field Name="_prestadorIntegration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.FluxoService">
+    <Position X="0.5" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAABAAAAAQAAAIAAAAAAAQAAAAAAIAAIAAA=</HashCode>
+      <FileName>FluxoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_fluxoRepository" />
+      <Field Name="_fluxoIntegration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.EspecialidadeService">
+    <Position X="14.5" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAgAAAABAAAAAAAAAAACAABAgQAAAgAAAAAAQAA=</HashCode>
+      <FileName>EspecialidadeService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_especialidadeRepository" />
+      <Field Name="_especialidadeIntegration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.ConveniadoService">
+    <Position X="3.25" Y="1.5" Width="2" />
+    <AssociationLine Name="_especialidadeRepository" Type="Gisa.SqlRepository.EspecialidadeRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="4.188" />
+        <Point X="6.5" Y="4.188" />
+        <Point X="6.5" Y="9.75" />
+        <Point X="8.5" Y="9.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_localizacaoRepository" Type="Gisa.SqlRepository.LocalizacaoRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="3.938" />
+        <Point X="7.125" Y="3.938" />
+        <Point X="7.125" Y="6.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgAQAAgAAAABJQAAAAAAAAAAIAgAAQAAABAAAAAAQAA=</HashCode>
+      <FileName>ConveniadoService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_conveniadoRepository" />
+      <Field Name="_especialidadeRepository" />
+      <Field Name="_localizacaoRepository" />
+      <Field Name="_conveniadoIntegration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.AssociadoRepository">
+    <Position X="9.5" Y="4.75" Width="2.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.PrestadorRepository">
+    <Position X="17.25" Y="6.75" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.FluxoRepository">
+    <Position X="0.5" Y="6.25" Width="2.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.EspecialidadeRepository">
+    <Position X="8.5" Y="9" Width="2.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.ConveniadoRepository">
+    <Position X="4.25" Y="8.25" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.LocalizacaoRepository">
+    <Position X="7" Y="6.5" Width="2.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.ConsultaRepository">
+    <Position X="13.5" Y="6.5" Width="2.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.ConsultaFluxoRepository">
+    <Position X="20.75" Y="6.5" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.UsuarioService">
+    <Position X="23.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQABAAgAABAAAAAABAAQAAAAAAAQIAAAAAAAAAAAA=</HashCode>
+      <FileName>UsuarioService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_usuarioRepository" />
+      <Field Name="_tokenService" />
+      <Field Name="_usuarioIntegration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.SqlRepository.UsuarioRepository">
+    <Position X="26.25" Y="5.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gisa.Service.AtenticacaoService">
+    <Position X="26.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAEAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>TokenService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Gisa.Domain.Interfaces.Integration.IEspecialidadeIntegration">
+    <Position X="14" Y="4" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Gisa.Domain.Interfaces.Integration.IFluxoIntegration">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Gisa.Domain.Interfaces.Integration.IConveniadoIntegration">
+    <Position X="3" Y="5" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Gisa.Domain.Interfaces.Integration.IPrestadorIntegration">
+    <Position X="18.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Gisa.Domain.Interfaces.Integration.IAssociadoIntegration">
+    <Position X="7.5" Y="4.25" Width="1.75" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Gisa.Domain.Interfaces.Integration.IConsultaIntegration">
+    <Position X="11" Y="7" Width="1.75" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Gisa.Domain.Interfaces.Integration.IConsultaFluxoIntegration">
+    <Position X="22.5" Y="4" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Gisa.Domain.Interfaces.Integration.IUsuarioIntegration">
+    <Position X="28.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,182 @@
+#acordo_online_pocket_button {
+    position: fixed;
+    right: 35px;
+    bottom: 35px;
+    width: 60px;
+    height: 60px;
+    z-index: 9999;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+#acordo_online_pocket_button .inner-container {
+    box-shadow: 0 0 20px -5px #08294F;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-color .5s;
+    background-color: #fff
+}
+
+#acordo_online_pocket_button .pocket_site_logo {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    transition: top .5s
+}
+
+#acordo_online_pocket_button .pocket_site_close_icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 20px;
+    top: 20px;
+    transform: rotate(0);
+    opacity: 0;
+    transition: transform .5s,opacity .5s
+}
+
+#acordo_online_pocket_button.open .inner-container {
+    box-shadow: none;
+    background-color: #08294F
+}
+
+#acordo_online_pocket_button.open .pocket_site_logo {
+    top: -60px
+}
+
+#acordo_online_pocket_button.open .pocket_site_close_icon {
+    opacity: 1;
+    transform: rotate(180deg)
+}
+
+#acordo_online_pocket_button #acordo_online_pocket_notification {
+    position: absolute;
+    background: #ff6700;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -2px;
+    right: -2px;
+    transform: scale(1);
+    transition: transform .3s cubic-bezier(.175,.785,.12,1.8)
+}
+
+#acordo_online_pocket_button #acordo_online_pocket_notification.hidden {
+    transform: scale(0)
+}
+
+#acordo_online_pocket_container {
+    transition: height .5s;
+    width: 400px;
+    height: 0;
+    position: fixed;
+    background: #fff;
+    bottom: 120px;
+    right: 35px;
+    border-radius: 16px;
+    z-index: 9999;
+    overflow: hidden
+}
+
+#acordo_online_pocket_container.open {
+    box-shadow: 0 0 20px -5px #08294F;
+    height: 600px;
+    max-height: calc(100vh - 140px)
+}
+
+#acordo_online_pocket_container .acordo_online_pocket_site_loader {
+    transition: height .5s,box-shadow .5s;
+    width: 100%;
+    height: 0;
+    background-color: #EEE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden
+}
+
+#acordo_online_pocket_container .acordo_online_pocket_site_loader img {
+    width: 32px
+}
+
+#acordo_online_pocket_container .acordo_online_pocket_site_loader .acordo_online_loaderlabel {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 8px;
+    text-transform: uppercase;
+    font-size: 12px
+}
+
+#acordo_online_pocket_container.loading .acordo_online_pocket_site_loader {
+    height: 100%
+}
+
+.acordo_online_pocket_site {
+    width: 100%;
+    height: 100%;
+    border: none
+}
+
+.acordo_online_pocket_site_calltoaction_form_form {
+    position: relative!important
+}
+
+.acordo_online_pocket_site_calltoaction_form_form .acordo_online_pocket_site_calltoaction_form_loading_overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFF;
+    opacity: 0;
+    justify-content: center;
+    align-items: center
+}
+
+.acordo_online_pocket_site_calltoaction_form_form .acordo_online_pocket_site_calltoaction_form_loading_overlay img {
+    width: 32px!important;
+    height: 32px!important
+}
+
+.acordo_online_pocket_site_calltoaction_form_form.loading .acordo_online_pocket_site_calltoaction_form_loading_overlay {
+    display: flex;
+    transition: opacity .5s;
+    opacity: .6
+}
+
+@media only screen and (max-width: 767px) {
+    #acordo_online_pocket_button {
+        right:10px;
+        bottom: 10px
+    }
+
+    #acordo_online_pocket_container {
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: auto;
+        border-radius: 0;
+        z-index: 9998
+    }
+
+    #acordo_online_pocket_container.open {
+        height: 100vh;
+        max-height: 100vh
+    }
+}

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gisa WF</title>
+</head>
+<body>
+    <script src="../js/drawflow.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <link href="../css/DataFlow/drawflow.css" rel="stylesheet" />
+    <link href="../css/DataFlow/beautiful.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="../libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="../js/services.js"></script>
+    <link href="../css/main.css" rel="stylesheet" />
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Workflow</h1> <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn btn-sm btn-secondary" onclick="editor.clearModuleSelected()" style="margin-right:10px;">Limpar</div>
+            <div class="btn btn-sm btn-primary" onclick="Export()">Salvar</div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="col">
+            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="inicio">
+                <i class="fa fa-cogs"></i><span> Processo inicial</span>
+            </div>
+            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="aprovacao">
+                <i class="fa fa-thumbs-up"></i><span> Aprovação</span>
+            </div>
+            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="sms">
+                <i class="fa fa-comment"></i><span> SMS</span>
+            </div>
+            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="email">
+                <i class="fas fa-at"></i><span> Email</span>
+            </div>
+            <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="fim">
+                <i class="fas fa-bullseye"></i><span>  Processo final</span>
+            </div>
+        </div>
+        <div class="col-right">
+            <div class="menu">
+                <ul>
+                    <li onclick="editor.changeModule('Home'); changeModule(event);" class="selected">Consulta</li>
+                </ul>
+            </div>
+            <div id="drawflow" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="btn-lock">
+                    <i id="lock" class="fas fa-lock-open" onclick="editor.editor_mode='fixed'; changeMode('lock');"></i>
+                    <i id="unlock" class="fas fa-lock" onclick="editor.editor_mode='edit'; changeMode('unlock');" style="display:none;"></i>
+                </div>
+                <div class="bar-zoom">
+                    <i class="fas fa-search-minus" onclick="editor.zoom_out()"></i>
+                    <i class="fas fa-search" onclick="editor.zoom_reset()"></i>
+                    <i class="fas fa-search-plus" onclick="editor.zoom_in()"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var id = document.getElementById("drawflow");
+        var dataToImport = { "drawflow": { "Home": { "data": { "7": { "id": 7, "name": "aprovacao", "data": { "exibir_associado": "Sim", "exibir_descricao": "1111", "procedimento": "2222", "area_responsavel": "Laboratorio" }, "class": "aprovacao", "html": "\n                <div>\n                  <div class=\"title-box\"><i class=\"fa fa-thumbs-up\"></i> Aprovação</div>\n                    <div class=\"box\">\n <p>Exibir para associado</p>\n<select id=\"ExibirAssociado\" df-exibir_associado>\n<option value=\"Nao\">Não</option>\n            <option value=\"Sim\">Sim</option>\n</select>\n<p>Texto para exibição</p>\n                    <input type=\"text\" df-exibir_descricao>\n<p>Procedimento</p>\n                    <input type=\"text\" df-procedimento>\n         <p>Área responsável</p>\n<select id=\"area_responsavel\" df-area_responsavel>\n            <option value=\"Agendamento\">Agendamento</option>\n          <option value=\"Financeiro\">Financeiro</option>\n          <option value=\"Laboratorio\">Laboratório</option>\n          <option value=\"Pericia\" selected>Perícia</option>\n</select>\n                    </div>\n                </div>\n                ", "typenode": false, "inputs": { "input_1": { "connections": [] } }, "outputs": { "output_1": { "connections": [{ "node": "8", "output": "input_1" }] }, "output_2": { "connections": [{ "node": "9", "output": "input_1" }] } }, "pos_x": 380, "pos_y": 90 }, "8": { "id": 8, "name": "fim", "data": {}, "class": "fim", "html": "\n                        <div>\n                          <div class=\"title-box\"><i class=\"fas fa-bullseye\"></i> Processo Final </div>\n                        </div>\n                        ", "typenode": false, "inputs": { "input_1": { "connections": [{ "node": "7", "input": "output_1" }] } }, "outputs": {}, "pos_x": 912, "pos_y": 36 }, "9": { "id": 9, "name": "fim", "data": {}, "class": "fim", "html": "\n                        <div>\n                          <div class=\"title-box\"><i class=\"fas fa-bullseye\"></i> Processo Final </div>\n                        </div>\n                        ", "typenode": false, "inputs": { "input_1": { "connections": [{ "node": "7", "input": "output_2" }] } }, "outputs": {}, "pos_x": 901, "pos_y": 362 } } } } };
+        const editor = new Drawflow(id);
+        editor.reroute = true;
+        editor.reroute_fix_curvature = true;
+        editor.force_first_input = false;
+
+        $(document).ready(function () {
+
+            api.FluxoRecuperar("CONSULTA").then((data) => {
+                var consultaJson = JSON.parse(data.processo);
+                editor.import(consultaJson);
+            });
+
+            //jQuery.ajax({
+            //    type: "Get",
+            //    url: "https://localhost:44351/api/fluxo/consulta",
+            //    headers: {
+            //        "Authorization": 'Bearer ' + localStorage.getItem('token')
+            //    },
+            //    success: function (data) {
+            //        console.log(data);
+            //        dataToImport = { "drawflow": { "Home": { "data": { "7": { "id": 7, "name": "aprovacao", "data": { "exibir_associado": "Sim", "exibir_descricao": "1111", "procedimento": "2222", "area_responsavel": "Laboratorio" }, "class": "aprovacao", "html": "\n                <div>\n                  <div class=\"title-box\"><i class=\"fa fa-thumbs-up\"></i> Aprovação</div>\n                    <div class=\"box\">\n <p>Exibir para associado</p>\n<select id=\"ExibirAssociado\" df-exibir_associado>\n<option value=\"Nao\">Não</option>\n            <option value=\"Sim\">Sim</option>\n</select>\n<p>Texto para exibição</p>\n                    <input type=\"text\" df-exibir_descricao>\n<p>Procedimento</p>\n                    <input type=\"text\" df-procedimento>\n         <p>Área responsável</p>\n<select id=\"area_responsavel\" df-area_responsavel>\n            <option value=\"Agendamento\">Agendamento</option>\n          <option value=\"Financeiro\">Financeiro</option>\n          <option value=\"Laboratorio\">Laboratório</option>\n          <option value=\"Pericia\" selected>Perícia</option>\n</select>\n                    </div>\n                </div>\n                ", "typenode": false, "inputs": { "input_1": { "connections": [] } }, "outputs": { "output_1": { "connections": [{ "node": "8", "output": "input_1" }] }, "output_2": { "connections": [{ "node": "9", "output": "input_1" }] } }, "pos_x": 380, "pos_y": 90 }, "8": { "id": 8, "name": "fim", "data": {}, "class": "fim", "html": "\n                        <div>\n                          <div class=\"title-box\"><i class=\"fas fa-bullseye\"></i> Processo Final </div>\n                        </div>\n                        ", "typenode": false, "inputs": { "input_1": { "connections": [{ "node": "7", "input": "output_1" }] } }, "outputs": {}, "pos_x": 912, "pos_y": 36 }, "9": { "id": 9, "name": "fim", "data": {}, "class": "fim", "html": "\n                        <div>\n                          <div class=\"title-box\"><i class=\"fas fa-bullseye\"></i> Processo Final </div>\n                        </div>\n                        ", "typenode": false, "inputs": { "input_1": { "connections": [{ "node": "7", "input": "output_2" }] } }, "outputs": {}, "pos_x": 901, "pos_y": 362 } } } } };
+            //        var jsonTeste = JSON.parse(data.processo);
+            //        console.log(jsonTeste);
+            //        editor.import(jsonTeste);
+            //    },
+            //        async: false
+            //    });
+        });
+
+        function Export() {
+            const fluxo = { "codigo": "CONSULTA", "nome": "Consulta Médica", "ProcessoObject": editor.export(), "Processo": JSON.stringify(editor.export()) };
+            api.FluxoSalvar(fluxo).then((data) => {
+                alert("Salvo com sucesso");
+            });
+        }
+
+        editor.start();
+
+        // Events!
+        editor.on('nodeCreated', function (id) {
+            if (editor.drawflow.drawflow.Home.data[id].name == 'aprovacao') {
+                $('#node-' + id + ' .output_1').removeClass("outputFalso").addClass('outputVerdadeiro');
+                $('#node-' + id + ' .output_2').removeClass("outputVerdadeiro").addClass('outputFalso');
+            }
+            console.log("Node created " + id);
+        })
+
+        editor.on('nodeRemoved', function (id) {
+            console.log("Node removed " + id);
+        })
+
+        editor.on('import', function (id) {
+            console.log("Node import " + id);
+        })
+
+
+        editor.on('nodeSelected', function (id) {
+            console.log("Node selected " + id);
+        })
+
+        editor.on('moduleCreated', function (name) {
+            console.log("Module Created " + name);
+        })
+
+        editor.on('moduleChanged', function (name) {
+            console.log("Module Changed " + name);
+        })
+
+        editor.on('connectionCreated', function (connection) {
+            debugger
+            if (editor.drawflow.drawflow.Home.data[connection.output_id].name == 'aprovacao') {
+                if (connection.output_class == "output_1") {
+                    $('.node_out_node-' + connection.output_id + '.output_1  path').addClass('main-pathVerdadeiro')
+                }
+                else {
+                    $('.node_out_node-' + connection.output_id + '.output_2  path').addClass('main-pathFalso')
+                }
+            }
+            console.log('Connection created');
+            console.log(connection);
+        })
+        editor.on('connectionUpdated', function (connection) {
+            //var id = connection.output_id.split('-')[1];
+
+            //if (editor.drawflow.drawflow.Home.data[id].name == 'aprovacao') {
+            //    $('.node_out_node-' + id + '.output_1  path').addClass('main-pathVerdadeiro')
+            //    $('.node_out_node-' + id + '.output_2  path').addClass('main-pathFalso')
+            //}
+        })
+
+        editor.on('connectionRemoved', function (connection) {
+            console.log('Connection removed');
+            console.log(connection);
+        })
+        /*
+            editor.on('mouseMove', function(position) {
+              console.log('Position mouse x:' + position.x + ' y:'+ position.y);
+            })
+        */
+        editor.on('nodeMoved', function (id) {
+            console.log("Node moved " + id);
+        })
+
+        editor.on('zoom', function (zoom) {
+            console.log('Zoom level ' + zoom);
+        })
+
+        editor.on('translate', function (position) {
+            console.log('Translate x:' + position.x + ' y:' + position.y);
+        })
+
+        editor.on('addReroute', function (id) {
+            console.log("Reroute added " + id);
+        })
+
+        editor.on('removeReroute', function (id) {
+            console.log("Reroute removed " + id);
+        })
+        /* DRAG EVENT */
+
+        /* Mouse and Touch Actions */
+
+        var elements = document.getElementsByClassName('drag-drawflow');
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('touchend', drop, false);
+            elements[i].addEventListener('touchmove', positionMobile, false);
+            elements[i].addEventListener('touchstart', drag, false);
+        }
+
+        var mobile_item_selec = '';
+        var mobile_last_move = null;
+        function positionMobile(ev) {
+            mobile_last_move = ev;
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            if (ev.type === "touchstart") {
+                mobile_item_selec = ev.target.closest(".drag-drawflow").getAttribute('data-node');
+            } else {
+                ev.dataTransfer.setData("node", ev.target.getAttribute('data-node'));
+            }
+        }
+
+        function drop(ev) {
+            if (ev.type === "touchend") {
+                var parentdrawflow = document.elementFromPoint(mobile_last_move.touches[0].clientX, mobile_last_move.touches[0].clientY).closest("#drawflow");
+                if (parentdrawflow != null) {
+                    addNodeToDrawFlow(mobile_item_selec, mobile_last_move.touches[0].clientX, mobile_last_move.touches[0].clientY);
+                }
+                mobile_item_selec = '';
+            } else {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("node");
+                addNodeToDrawFlow(data, ev.clientX, ev.clientY);
+            }
+
+        }
+
+        function addNodeToDrawFlow(name, pos_x, pos_y) {
+            if (editor.editor_mode === 'fixed') {
+                return false;
+            }
+            pos_x = pos_x * (editor.precanvas.clientWidth / (editor.precanvas.clientWidth * editor.zoom)) - (editor.precanvas.getBoundingClientRect().x * (editor.precanvas.clientWidth / (editor.precanvas.clientWidth * editor.zoom)));
+            pos_y = pos_y * (editor.precanvas.clientHeight / (editor.precanvas.clientHeight * editor.zoom)) - (editor.precanvas.getBoundingClientRect().y * (editor.precanvas.clientHeight / (editor.precanvas.clientHeight * editor.zoom)));
+
+
+            switch (name) {
+                case 'aprovacao':
+                    var aprovacao = `
+                                                                    <div>
+                                                                      <div class="title-box"><i class="fa fa-thumbs-up"></i> Aprovação</div>
+                                                                        <div class="box">
+                                                     <p>Exibir para associado</p>
+<select id="ExibirAssociado" df-exibir_associado>
+<option value="Nao">Não</option>
+                                                                <option value="Sim">Sim</option>
+</select>
+<p>Texto para exibição</p>
+                                                                        <input type="text" df-exibir_descricao>
+<p>Procedimento</p>
+                                                                        <input type="text" df-procedimento>
+                                                             <p>Área responsável</p>
+<select id="area_responsavel" df-area_responsavel>
+                                                                <option value="Agendamento">Agendamento</option>
+                                                              <option value="Financeiro">Financeiro</option>
+                                                              <option value="Laboratorio">Laboratório</option>
+                                                              <option value="Pericia" selected>Perícia</option>
+</select>
+                                                                        </div>
+                                                                    </div>
+                                                                    `;
+                    editor.addNode('aprovacao', 1, 2, pos_x, pos_y, 'aprovacao', {}, aprovacao, false, true);
+                    break;
+                case 'sms':
+                    var sms = `
+                                                                      <div>
+                                                                        <div class="title-box">
+                                                                            <i class="fa fa-comment"></i> SMS</div>
+                                                                      </div> `;
+                    editor.addNode('sms', 1, 0, pos_x, pos_y, 'sms', {}, sms);
+                    break;
+                case 'inicio':
+                    var inicio = `
+                                                                      <div>
+                                                                        <div class="title-box"><i class="fa fa-cogs "></i> Processo inicial</div>
+                                                                        <div class="box">
+                                                                          <p>Descrição</p>
+                                                                        <input type="text" df-name>
+                                                                        </div>
+                                                                      </div>
+                                                                      `;
+                    editor.addNode('inicio', 0, 1, pos_x, pos_y, 'inicio', { "name": '' }, inicio);
+                    break;
+                case 'email':
+                    var email = `
+                                                                        <div>
+                                                                          <div class="title-box"><i class="fas fa-at"></i> Email </div>
+                                                                        </div>
+                                                                        `;
+                    editor.addNode('email', 1, 0, pos_x, pos_y, 'email', {}, email);
+                    break;
+                case 'fim':
+                    var fim = `
+                                                                        <div>
+                                                                          <div class="title-box"><i class="fas fa-bullseye"></i> Processo Final </div>
+                                                                        </div>
+                                                                        `;
+                    editor.addNode('fim', 1, 0, pos_x, pos_y, 'fim', {}, fim);
+                    break;
+                default:
+            }
+        }
+
+        var transform = '';
+        function showpopup(e) {
+            e.target.closest(".drawflow-node").style.zIndex = "9999";
+            e.target.children[0].style.display = "block";
+            //document.getElementById("modalfix").style.display = "block";
+
+            //e.target.children[0].style.transform = 'translate('+translate.x+'px, '+translate.y+'px)';
+            transform = editor.precanvas.style.transform;
+            editor.precanvas.style.transform = '';
+            editor.precanvas.style.left = editor.canvas_x + 'px';
+            editor.precanvas.style.top = editor.canvas_y + 'px';
+            console.log(transform);
+
+            //e.target.children[0].style.top  =  -editor.canvas_y - editor.container.offsetTop +'px';
+            //e.target.children[0].style.left  =  -editor.canvas_x  - editor.container.offsetLeft +'px';
+            editor.editor_mode = "fixed";
+
+        }
+
+        function closemodal(e) {
+            e.target.closest(".drawflow-node").style.zIndex = "2";
+            e.target.parentElement.parentElement.style.display = "none";
+            //document.getElementById("modalfix").style.display = "none";
+            editor.precanvas.style.transform = transform;
+            editor.precanvas.style.left = '0px';
+            editor.precanvas.style.top = '0px';
+            editor.editor_mode = "edit";
+        }
+
+        function changeModule(event) {
+            var all = document.querySelectorAll(".menu ul li");
+            for (var i = 0; i < all.length; i++) {
+                all[i].classList.remove('selected');
+            }
+            event.target.classList.add('selected');
+        }
+
+        function changeMode(option) {
+
+            //console.log(lock.id);
+            if (option == 'lock') {
+                lock.style.display = 'none';
+                unlock.style.display = 'block';
+            } else {
+                lock.style.display = 'block';
+                unlock.style.display = 'none';
+            }
+
+        }
+
+        //editor.import(dataToImport);
+        console.log(1);
+
+    </script>
+</body>
+</html>

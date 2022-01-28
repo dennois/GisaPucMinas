@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Gisa.Domain.Plano">
+    <Position X="17.75" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAAEAAAQ=</HashCode>
+      <FileName>Plano.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gisa.Domain.Associado">
+    <Position X="13.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIEAAAAAAAAAAAAAACAAAIAAAAAAAAAAAEAEAA=</HashCode>
+      <FileName>Associado.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Endereco" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gisa.Domain.Localizacao">
+    <Position X="15.5" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAEAAACIAAAAIAACAAAAAAAAAAAAAAAABAAg=</HashCode>
+      <FileName>Localizacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gisa.Domain.Carteirinha">
+    <Position X="17.75" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ABAAgAAAAwAAAIAAAAAAAAAAAAAAAAAAAAAAAACAAAE=</HashCode>
+      <FileName>Carteirinha.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Empresa" />
+      <Property Name="PlanoContratado" />
+      <Property Name="Associado" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gisa.Domain.Empresa">
+    <Position X="18.25" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAEAAAAAEAAAEAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Empresa.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Endereco" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gisa.Domain.Exame">
+    <Position X="9.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAEAAAAAAAAAAAAAAAAAAAAIAgAAAQAAAAAAgA=</HashCode>
+      <FileName>Exame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Associado" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gisa.Domain.Boleto">
+    <Position X="10.25" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AACAgAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAAQAAA=</HashCode>
+      <FileName>Boleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Associado" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gisa.Domain.Prestador">
+    <Position X="5" Y="5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Prestador.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Especialidades" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gisa.Domain.Conveniado">
+    <Position X="9" Y="8.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAQ=</HashCode>
+      <FileName>Conveniado.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Endereco" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Especialidades" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gisa.Domain.Especialidade">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Especialidade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gisa.Domain.Consulta">
+    <Position X="12.5" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAoFAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAEACAAAA=</HashCode>
+      <FileName>Consulta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Associado" />
+      <Property Name="Especialidade" />
+      <Property Name="Conveniado" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
